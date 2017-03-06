@@ -1,2 +1,2 @@
 # dotfiles
-Store my own dot files.
+This repo will store my dot files.

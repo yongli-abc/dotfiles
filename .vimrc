@@ -37,8 +37,8 @@ Plugin 'scrooloose/nerdtree'
 nmap <C-N> :NERDTreeToggle<CR>
 
 let g:NERDTreeMapOpenInTabSilent = '<2-LeftMouse>'
-let NERDTreeWinSize=31
-let g:NERDTree
+let NERDTreeWinSize=32
+let g:NERDTreeShowBookmarks=1
 
 autocmd StdinReadPre * let s:std_in=1                                       " Open NERDTree automatically when vim starts if no files
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif "   are specified
@@ -66,6 +66,7 @@ Plugin 'xolox/vim-easytags'
 " Plugin 'pangloss/vim-javascript'
 
 " Plugin 'majutsushi/tagbar'
+" nmap <F8> :TagbarToggle<CR>
 " " Add support for markdown files in tagbar.
 " " with the vimwiki plugin, filetype for markdown files have been changed to 'vimwiki'
 " let g:tagbar_type_vimwiki = {
@@ -139,7 +140,7 @@ set cindent
 set linebreak
 set textwidth=500
 
-""" Searching
+"" Searching
 set hlsearch
 set incsearch " use increment search by default
 set ignorecase
@@ -151,6 +152,7 @@ let mapleader=','
 "" Get rid of swp files
 set nobackup
 set noswapfile
+set nowritebackup " don't want a backup file while editing
 
 "" Fileformats
 set fileformats=unix,dos,mac
@@ -163,6 +165,9 @@ let g:session_directory = "~/.vim/session"
 let g:session_autoload = "no"
 let g:session_autosave = "no"
 let g:session_command_aliases = 1
+
+"" show autocompletion menu in ex mode
+set wildmenu
 
 if exists('$SHELL')
     set shell=$SHELL
@@ -202,68 +207,28 @@ cnoreabbrev W w
 cnoreabbrev Q q
 cnoreabbrev Qall qall
 
-"""""""""""""""
-" Moving around, tabs, windows and buffers
-""""""""""""""
-    " Smart way to move between windows
-    map <C-j> <C-W>j
-    map <C-k> <C-W>k
-    map <C-h> <C-W>h
-    map <C-l> <C-W>l
+"===============================================================
+"" Mappings
+"===============================================================
+"" navigate within panels
+noremap <C-j> <C-W>j
+noremap <C-k> <C-W>k
+noremap <C-h> <C-W>h
+noremap <C-l> <C-W>l
 
-""""""""""""""
-" Key mappings
-""""""""""""""
-    nmap <F8> :TagbarToggle<CR>
-    nmap <S-l> :<C-u>nohlsearch<CR>:redr!<CR>
-    nnoremap <silent> [b :bp<CR>
-    nnoremap <silent> ]b :bn<CR>
-    nnoremap <silent> [B :bf<CR>
-    nnoremap <silent> ]B :bl<CR>
+"===============================================================
+"" Misc
+"===============================================================
+:command FormatJSON %!python -m json.tool " Define a command for formatting JSON
+:command Fold :setlocal foldmethod=syntax
+autocmd BufWritePre * :%s/\s\+$//e " Automatically remove trailing whitespaces when :w
 
-    " next 2 maps and the function, together allows search for selected text
-    xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
-    xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<C-R>=@/<CR><CR>
-    function! s:VSetSearch()
-        let temp = @s
-        norm! gv"sy
-        let @/ = '\V' . substitute(escape(@s, '/\'), '\n', '\\n', 'g')
-        let @s = temp
-    endfunction
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o " disable auto commenting when opening a new line below a commented line
 
-""""""""""""""
-" Misc
-""""""""""""""
-    set mouse=a " enable use of mouse in vim
-    :command FormatJSON %!python -m json.tool " Define a command for formatting JSON
-    :command Fold :setlocal foldmethod=syntax
-    ":command SyntaxFold :setlocal foldmethod=syntax<CR>
-    autocmd BufWritePre * :%s/\s\+$//e " Automatically remove trailing whitespaces when :w
+cnoremap <expr> %% getcmdtype( ) == ':' ? expand('%:h').'/' : '%%'
 
-    set nobackup "no backup files
-    set nowritebackup " don't want a backup file while editing
-    set noswapfile
-    set conceallevel=0  " show vertical bars for hyperlinks in manual
-    set history=500
-    set hlsearch
+autocmd! FileType c,cpp,java,php call CSyntaxAfter()
 
-    cnoremap <C-p> <Up>
-    cnoremap <C-n> <Down> " use ctrl+p/n to scroll commands in ex mode, while keeping filtering keywords
-
-    autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o " disable auto commenting when opening a new line below a commented line
-
-    cnoremap <expr> %% getcmdtype( ) == ':' ? expand('%:h').'/' : '%%'
-    " autocmd VimEnter * Obsession .Session.vim
-
-    autocmd! FileType c,cpp,java,php call CSyntaxAfter()
-
-""""""""""""""
-" Filetype recognition
-""""""""""""""
+"" Filetype recognition
 au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/ftplugin/yaml.vim " recognize yaml filetype, and source yaml.vim
 au BufNewFile,BufRead *.ispl setfiletype ispl
-
-""""""""""""""
-" Autocompletion
-""""""""""""""
-set wildmenu " show autocompletion menu in ex mode

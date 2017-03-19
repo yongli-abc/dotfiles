@@ -21,6 +21,7 @@ let blacklists = ["https://mail.google.com/*", "*://mail.google.com/*", "@https:
 " Mapping "
 """""""""""
 " let mapleader = ","
+unmap . " don't let '.' mistakenly close the tab
 
 """ Moving around within page """
 map <C-d> scrollPageDown

@@ -120,7 +120,6 @@ set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
 set fileencodings=utf-8
 set termencoding=utf-8
 set bomb
-set binary
 set ttyfast
 
 "" Fix backspace indent

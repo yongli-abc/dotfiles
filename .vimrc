@@ -188,10 +188,12 @@ set scrolloff=3 " always leave 3 lines at the top/bottom of the screen
 
 set laststatus=2 " show vim status bar
 
-set backspace=2 "Fix the backspace problem in vim 7.4
+set backspace=2 " fix the backspace problem in vim 7.4
+
+set colorcolumn=80 " show a line at column 80 as a visual hint for very long text
 
 "===============================================================
-"" Visual Appearance
+"" Mistype prevention
 "===============================================================
 "" no one is really happy until you have this shortcuts
 "" these are all very easily mis-capitalized letters

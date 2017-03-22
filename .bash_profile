@@ -15,7 +15,7 @@ umask 0077 # make this file private, restricting anyone else
 # ======================
 # Shell prompt
 # ======================
-export PS1="\[\e[4;33m\]${USER}\[\e[0;36m\]\w\[\e[0;31m\]\$\[\e[0m\]:"
+export PS1="\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$"
 
 # ======================
 # PATH settings

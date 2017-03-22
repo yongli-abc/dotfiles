@@ -18,7 +18,7 @@ set -o noclobber
 # ======================
 alias ll='ls -l'
 alias la='ls -a'
-alias ls='ls -F' # always add a symbol to show file type
+alias ls='ls -F --color' # always add a symbol to show file type
 alias a=alias
 alias h=history
 alias grep='grep -E' # force grep to behave as egrep, allowing extended regular expressions

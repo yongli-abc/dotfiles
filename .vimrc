@@ -228,8 +228,6 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o "
 
 cnoremap <expr> %% getcmdtype( ) == ':' ? expand('%:h').'/' : '%%'
 
-autocmd! FileType c,cpp,java,php call CSyntaxAfter()
-
 "" Filetype recognition
 au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/ftplugin/yaml.vim " recognize yaml filetype, and source yaml.vim
 au BufNewFile,BufRead *.ispl setfiletype ispl

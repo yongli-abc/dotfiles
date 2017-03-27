@@ -37,6 +37,7 @@ alias tas='tmux attach-session -t'
 alias td='todo'
 alias tdl='todo ls'
 alias tda='todo add'
+alias gitlg="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
 # alias for homebrew's coreutils
 alias readlink='greadlink'

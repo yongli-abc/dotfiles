@@ -10,7 +10,7 @@ export CLICOLOR=1 # enable color display in terminal
 export LESS='-M'
 
 # File creation mask
-umask 0077 # make this file private, restricting anyone else
+umask 022
 
 # ======================
 # Shell prompt

@@ -2,6 +2,9 @@
 ### delete
 <kbd>ctrl</kbd>+<kbd>1</kbd>
 
+### forward delete
+<kbd>shift</kbd>+<kbd>backspace</kbd>
+
 ### delete one word
 <kbd>ctrl</kbd>+<kbd>backspace</kbd></br>
 <kbd>ctrl</kbd>+<kbd>shift</kbd>+<kbd>1</kbd>

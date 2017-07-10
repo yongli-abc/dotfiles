@@ -22,6 +22,12 @@
 ### paste
 <kbd>ctrl</kbd>+<kbd>v</kbd>
 
+### undo
+<kbd>cmd</kbd>+<kbd>z</kbd>
+
+### redo
+<kbd>shift</kbd>+<kbd>cmd</kbd>+<kbd>z</kbd>
+
 # Navigating
 <kbd>ctrl</kbd>+<kbd>q</kbd> switch to left tab
 

@@ -11,7 +11,7 @@
 
 ### delete one line
 <kbd>ctrl</kbd>+<kbd>cmd</kbd>+<kbd>backspace</kbd></br>
-<kbd>ctrl</kbd>+<kbd>shift</kbd>+<kbd>shift</kbd>+<kbd>1</kbd>
+<kbd>ctrl</kbd>+<kbd>cmd</kbd>+<kbd>shift</kbd>+<kbd>1</kbd>
 
 ### select all
 <kbd>ctrl</kbd>+<kbd>a</kbd>

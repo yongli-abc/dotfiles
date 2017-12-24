@@ -48,9 +48,9 @@ export PATH=/home/scratch/root/torch/bin:$PATH
 ### Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
-# ======================
+# ====================
 # Application specific
-# ======================
+# ====================
 
 # This section contains specific settings for applications.
 # Feel free to remove if you don't use the application
@@ -63,8 +63,16 @@ alias stop-pg='pg_ctl stop -m fast'
 alias show-pg-status='pg_ctl status'
 alias restart-pg='pg_ctl reload'
 
- # Load RVM into a shell session *as a function*
+# Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+# If sublime text is installed, and there's no symbolic link in /usr/local/bin, create the symlink
+sublime_path="/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl"
+sublime_taret_path="/usr/local/bin/sublime"
+
+if [[ -f "${sublime_path}" && ! -f "${sublime_taret_path}" ]]; then
+    ln -s "${sublime_path}" "${sublime_taret_path}"
+fi
 
 # ===========================
 # Load .bashrc in login shell
